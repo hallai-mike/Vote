@@ -1,9 +1,17 @@
 <% if logged_in? %>
   <% if current_user.admin? %>
     <h2>Admin logged in</h2>
+    <div class="col-md-8">
+      <h3>Active Issues</h3>
+      <ul style="list-style: none;">
+        <%= render @issues %>
+      </ul>
+    </div>
+
   <% else %>
     <h2>regular user logged in</h2>
   <% end %>
+
 <% else %>
   <div class="center jumbotron">
     <h1>Welcome to the Voting App</h1>

@@ -16,3 +16,11 @@ User.create!(username: "admin", admin: true, password: "foobar",
   User.create!(username:  name, password: password, 
     password_confirmation: password)
 end
+
+# Create some fake issues
+Issue.create!(title: "President", desc1: "President of the United States", 
+  desc2: "Please select one.")
+Issue.create!(title: "VP", desc1: "I know this isn't how elections work", 
+  desc2: "Please select one again.")
+Issue.create!(title: "House", desc1: "House of something", 
+  desc2: "Please pick one.")
