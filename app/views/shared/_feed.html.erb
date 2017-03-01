@@ -1,0 +1,14 @@
+<% if @issues %>
+  <table class="issues">
+    <col width="65%">
+    <col width="25%">
+    <col width="10%">
+    <tr>
+      <th>Title</th>
+      <th>Created</th> 
+      <th>Delete</th>
+    </tr>
+    <%= render @issues %>
+  </table>
+  <%= will_paginate @issues %>
+<% end %>
