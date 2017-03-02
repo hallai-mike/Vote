@@ -16,6 +16,14 @@ class IssuesController < ApplicationController
     end
   end
 
+  def destroy
+    @issue = Issue.find(params[:id])
+    if(@issue.present?)
+      @issue.destroy
+    end
+    redirect_to root_url
+  end
+
   private
 
     def issue_params
