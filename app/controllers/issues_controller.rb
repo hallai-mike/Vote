@@ -1,4 +1,15 @@
 class IssuesController < ApplicationController
+  
+  def create
+    @issue = Issue.new(issue_params)
+    if @issue.save
+      redirect_to @issue
+    else
+      #@feed_items = []
+      render root_url
+    end
+  end
+
   def show
     @issue = Issue.find(params[:id])
   end
