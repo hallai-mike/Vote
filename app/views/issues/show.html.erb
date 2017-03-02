@@ -29,3 +29,15 @@
   </label></p>
 
 </div>
+
+<div id="option_list_block">
+  <ul class="options">
+    <% if @issue.options.any? %>
+      <h4>Options (<%= @issue.options.count %>)</h4>
+      <%= render @issue.options %>
+    <% end %>
+  </ul>
+  <section class="ticket_form">
+    <%= render 'shared/option_form' %>
+  </section>
+</div>
