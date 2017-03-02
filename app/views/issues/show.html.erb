@@ -1,0 +1,31 @@
+<% provide(:title, @issue.title) %>
+<label><%= link_to "<- Issues", root_url %></label>
+
+<div id="issue_info">
+
+  <h3><%= @issue.title %></h3>
+
+  <div id="issue_desc1">
+    <label>Description 1: </label>
+    <%= simple_format(@issue.desc1) %>
+  </div>
+
+  <div id="issue_desc2">
+    <label>Description 2: </label>
+    <%= simple_format(@issue.desc2) %>
+  </div>
+
+  <p><label>Created: </label><%= @issue.created_at.strftime("%I:%M%p %m/%d/%Y") %></p>
+
+  <p><label>Last Updated: </label><%= @issue.updated_at.strftime("%I:%M%p %m/%d/%Y") %></p>
+  
+  <p><label><%= link_to "Edit Issue", edit_issue_path %></label></p>
+
+  <p><label>
+    <% if current_user.admin? %>
+      <%= link_to "Delete Issue", @issue, method: :delete,
+      data: { confirm: "Are you sure you want to delete this issue?" } %>
+    <% end %>
+  </label></p>
+
+</div>
