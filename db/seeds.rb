@@ -24,3 +24,10 @@ Issue.create!(title: "VP", desc1: "I know this isn't how elections work",
   desc2: "Please select one again.")
 Issue.create!(title: "House", desc1: "House of something", 
   desc2: "Please pick one.")
+
+# Give issues fake options
+issues = Issue.order(:created_at).take(3)
+3.times do
+  option = Faker::Name.last_name
+  issues.each { |issue| issue.options.create!(option: option) }
+end

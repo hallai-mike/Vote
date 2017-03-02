@@ -5,8 +5,8 @@ class IssuesController < ApplicationController
     if @issue.save
       redirect_to @issue
     else
-      #@feed_items = []
-      render root_url
+      #@issues = []
+      redirect_to root_url
     end
   end
 
