@@ -5,13 +5,13 @@ class IssuesController < ApplicationController
     if @issue.save
       redirect_to @issue
     else
-      #@issues = []
       redirect_to root_url
     end
   end
 
   def show
     @issue = Issue.find(params[:id])
+    @option = @issue.options.paginate(page: params[:page])
   end
 
   def edit
