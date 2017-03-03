@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :results
 	validates :username, presence: true, length: { maximum: 45 }, uniqueness: true
 	has_secure_password
 	validates :password, presence: true, length: { minimum: 6 }

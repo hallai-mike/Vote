@@ -31,3 +31,8 @@ issues = Issue.order(:created_at).take(3)
   option = Faker::Name.last_name
   issues.each { |issue| issue.options.create!(option: option) }
 end
+
+# Create 2 fake votes
+Result.create!(user_id: 1, issue_id: 1, option_id: 1)
+Result.create!(user_id: 2, issue_id: 2, option_id: 2)
+Result.create!(user_id: 2, issue_id: 1, option_id: 1)
