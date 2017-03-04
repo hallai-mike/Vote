@@ -10,11 +10,13 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-
   get  '/results',  to: 'static_pages#results'
+
+  post '/vote', to: 'results#create'
 
   resources :users
   resources :issues do
     resources :options
   end
+  resources :results
 end

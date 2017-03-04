@@ -5,14 +5,14 @@
     <% ar = [] %>
     <% @options.each do |option| %>
       <% if option.issue_id == issue.id %>
-        <% ar.push option.option %>
+        <% ar.push option %>
       <% end %>
     <% end %>
   </ul>
 
-  <%= form_for(:result, url: login_path) do |f| %>
+  <%= form_for(@result, url: vote_path, :issue_id => issue.id) do |f| %>
 
-    <%= f.select(:var_name, ar, {}, {multiple: "multiple"}) %>
+    <%= f.select(:option_id, ar.map(&:option), {}, {multiple: false}) %>
 
     <%= f.submit "Vote", class: "btn btn-primary" %>
   <% end %>
