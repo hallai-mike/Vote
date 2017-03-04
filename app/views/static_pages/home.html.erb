@@ -15,7 +15,12 @@
     </div>
 
   <% else %>
-    <h2>regular user logged in</h2>
+    <h2>Ballot</h2>
+    <ul style="list-style: none;">
+      <% @ballot.each do |issue| %>
+        <%= render partial: 'issues/form', locals: { issue: issue } %>
+      <% end %>
+    </ul>
   <% end %>
 
 <% else %>

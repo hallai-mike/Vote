@@ -1,0 +1,12 @@
+<li id="issue-<%= issue.id %>">
+  <div class="content"><%= issue.title %> </div>
+
+  <ul style="list-style: none;">
+    <% @options.each do |option| %>
+      <% if option.issue_id == issue.id %>
+        <%= render partial: 'options/form', locals: { option: option } %>
+      <% end %>
+    <% end %>
+  </ul>
+
+</li>

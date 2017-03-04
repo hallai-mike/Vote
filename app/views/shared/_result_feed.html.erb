@@ -1,0 +1,14 @@
+<% if @results %>
+  <table class="results">
+    <col width="30%">
+    <col width="30%">
+    <col width="30%">
+    <tr>
+      <th>User</th>
+      <th>Issue</th> 
+      <th>Option</th>
+    </tr>
+    <%= render @results %>
+  </table>
+  <%= will_paginate @results %>
+<% end %>
