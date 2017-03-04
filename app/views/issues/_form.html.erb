@@ -13,6 +13,7 @@
   <%= form_for(@result, url: vote_path, :issue_id => issue.id) do |f| %>
 
     <%= f.select(:option_id, ar.map(&:option), {}, {multiple: false}) %>
+    <%= f.hidden_field(:issue_id, :value => issue.id) %>
 
     <%= f.submit "Vote", class: "btn btn-primary" %>
   <% end %>

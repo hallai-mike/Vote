@@ -7,12 +7,17 @@ class ResultsController < ApplicationController
   def create
     @result = Result.new
     @result.user_id = current_user.id
+
     @result.issue_id = params[:issue_id]
-    #@result.option_id =Option.find_by(option: params[:result].option_id).id
-    @test = params[:result]
-    @test2 = @test[:option_id]
-    @test3 = Option.find_by(option: @test2)
-    @result.option_id = @test3.id
+    @resultparam = params[:result]
+    @option_name = @resultparam[:option_id]
+    @option = Option.find_by(option: @option_name)
+    @result.option_id = @option.id
+
+    @result.issue_id = @resultparam[:issue_id]
+
+
+
     if @result.save
       flash[:success] = "Welcome"
     else

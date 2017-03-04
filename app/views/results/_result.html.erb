@@ -1,5 +1,25 @@
 <tr id="result-<%= result.id %>">
-  <td><%= result.user_id %></td>
-  <td><%= result.issue_id %></td>
-  <td><%= result.option_id %></td>
+  <td>
+    <% if @u = User.find_by(id: result.user_id) %>
+      <%= @u.username %>
+    <% else %>
+      ERROR
+    <% end %>
+  </td>
+
+  <td>
+    <% if @i = Issue.find_by(id: result.issue_id) %>
+      <%= @i.title %>
+    <% else %>
+      ERROR
+    <% end %>
+  </td>
+
+  <td>
+    <% if @o = Option.find_by(id: result.option_id) %>
+      <%= @o.option %>
+    <% else %>
+      ERROR
+    <% end %>
+  </td>
 </tr>
