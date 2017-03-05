@@ -1,10 +1,5 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
 
 # Create Admin account
@@ -24,7 +19,7 @@ end
 # Create some issues with options
 title = "For Chief Dairy Queen"
 desc1 = "Unexpired Term"
-desc2 = "Shall Justice Mint C. Chip of the Supreme Court of the State of Ice Cream by retained in office for another term?"
+desc2 = "Shall Justice Mint C. Chip of the Supreme Court of the State of Ice Cream be retained in office for another term?"
 issue = Issue.create!(title: title, desc1: desc1, desc2: desc2)
 option = "Yes"
 issue.options.create!(option: option)
@@ -35,7 +30,7 @@ title = "For State Rep. District M&M"
 desc1 = "Vote For One"
 desc2 = ""
 issue = Issue.create!(title: title, desc1: desc1, desc2: desc2)
-option = "P. Nut Butter (Republican)"
+option = "P. Nut Butter (REPUBLICAN)"
 issue.options.create!(option: option)
 option = "Cream C. Kol (INDEPENDENT)"
 issue.options.create!(option: option)
@@ -64,11 +59,3 @@ issues.each { |issue|
     Result.create!(user_id: user_id, issue_id: issue_id, option_id: option_id)
   }
 }
-
-
-
-
-
-#Result.create!(user_id: 1, issue_id: 1, option_id: 1)
-#Result.create!(user_id: 2, issue_id: 2, option_id: 2)
-#Result.create!(user_id: 2, issue_id: 1, option_id: 1)

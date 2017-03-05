@@ -4,7 +4,7 @@ class User < ApplicationRecord
 	has_secure_password
 	validates :password, presence: true, length: { minimum: 6 }
 
-  # List of issues that the current user has not voted on.
+  # Returns list of issues that the current user has not voted on.
   def ballot
     # issue_ids for the current user's votes.
     already_voted_issues = Result.where(user_id: id).pluck(:issue_id)

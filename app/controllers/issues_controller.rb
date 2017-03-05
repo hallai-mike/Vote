@@ -1,5 +1,6 @@
 class IssuesController < ApplicationController
   before_action :logged_in_admin, only: [:create, :edit, :destroy]
+  # only admin can modify issues
 
   def create
     @issue = Issue.new(issue_params)

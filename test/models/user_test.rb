@@ -26,7 +26,7 @@ class UserTest < ActiveSupport::TestCase
   	assert_not @user.valid?
   end
 
-  test "password should not blank" do
+  test "password should not be blank" do
   	@user.password = ""
   	@user.password_confirmation = ""
   	assert_not @user.valid?

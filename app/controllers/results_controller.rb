@@ -10,8 +10,6 @@ class ResultsController < ApplicationController
     # Set the result's user_id
     @result.user_id = current_user.id
 
-    #@result.issue_id = params[:issue_id]
-
     # Find the issue and option chosen by the user
     @resultparam = params[:result]
     @option_name = @resultparam[:option_id]
