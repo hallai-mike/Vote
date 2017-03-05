@@ -20,8 +20,34 @@ textarea {
   font-weight: bold;
 }
 
+.grey {
+  font-weight: normal;
+  color: grey;
+}
+
 .center h1 {
   margin-bottom: 15px;
+}
+
+.info {
+  width: 50%;
+  margin-left:auto; 
+  margin-right:auto;
+}
+
+.back-btn {
+  margin-top: 10px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+#option_list_block {
+  li {
+    padding-bottom: 10px;
+  }
+  
 }
 
 
@@ -63,19 +89,33 @@ input {
     padding-left: 13%;
     font-weight: bold;
   }
+
   table {
-    border-collapse: collapse;
     width: 75%;
-    margin-left:auto; 
-    margin-right:auto;
-
   }
+  
+}
 
-  th, td {
-    padding: 6px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-left:auto; 
+  margin-right:auto;
+
+}
+
+th, td {
+  padding: 6px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover{background-color:#f5f5f5}
+
+
+.issue-info {
+  p {
+    padding-left: 20px;
+    padding-bottom: 20px;
   }
-
-  tr:hover{background-color:#f5f5f5}
 }

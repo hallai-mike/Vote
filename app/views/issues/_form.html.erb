@@ -1,5 +1,7 @@
 <li id="issue-<%= issue.id %>">
-  <h3><%= issue.title %> </h3>
+  <h3 class="bold"><%= issue.title %> </h3>
+  <h4 class ="grey"><%= issue.desc1 %></h4>
+  <h4 class ="grey"><%= issue.desc2 %></h4>
   <% if @options %>
     <ul style="list-style: none;">
       <% ar = [] %>

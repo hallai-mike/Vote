@@ -1,9 +1,4 @@
 <li id="option-<%= option.id %>">
-  <div class="content"><%= simple_format(option.option) %> </div>
-  <span class="timestamp"><%= time_ago_in_words(option.created_at) %>
-  </span>
-  <span class="delete">
-    <%= link_to "Delete", [option.issue, option], method: :delete,
-      data: { confirm: "Are you sure you want to delete this option?" } %>
-  </span>
+<%= simple_format(option.option) %>
+<%= link_to "Delete", [option.issue, option], method: :delete, data: { confirm: "Are you sure you want to delete this option?" } %>
 </li>

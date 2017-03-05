@@ -1,5 +1,6 @@
 class IssuesController < ApplicationController
-  
+  before_action :logged_in_admin, only: [:create, :edit, :destroy]
+
   def create
     @issue = Issue.new(issue_params)
     if @issue.save
@@ -39,6 +40,11 @@ class IssuesController < ApplicationController
 
     def issue_params
       params.require(:issue).permit(:title, :desc1, :desc2, :type)
+    end
+
+    # makes sure logged in user is an admin
+    def logged_in_admin
+      redirect_to root_url unless current_user.admin?
     end
 
 end
