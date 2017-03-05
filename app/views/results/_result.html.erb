@@ -1,11 +1,4 @@
 <tr id="result-<%= result.id %>">
-  <td>
-    <% if @u = User.find_by(id: result.user_id) %>
-      <%= @u.username %>
-    <% else %>
-      ERROR
-    <% end %>
-  </td>
 
   <td>
     <% if @i = Issue.find_by(id: result.issue_id) %>
@@ -22,4 +15,13 @@
       ERROR
     <% end %>
   </td>
+
+  <td>
+    <% if @u = User.find_by(id: result.user_id) %>
+      <%= @u.username %>
+    <% else %>
+      ERROR
+    <% end %>
+  </td>
+
 </tr>

@@ -6,33 +6,69 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 # Create Admin account
 User.create!(username: "admin", admin: true, password: "foobar", 
-  password_confirmation: "foobar")
+             password_confirmation: "foobar")
 
-0.times do |n|
+
+# Create fake accounts
+10.times do |n|
   name  = Faker::Name.last_name
-  password = "password123"
-  User.create!(username:  name, password: password, 
-    password_confirmation: password)
+  password = "foobar"
+  User.create!(username: name, password: password, 
+               password_confirmation: password)
 end
 
-# Create some fake issues
-Issue.create!(title: "President", desc1: "President of the United States", 
-  desc2: "Please select one.")
-Issue.create!(title: "VP", desc1: "I know this isn't how elections work", 
-  desc2: "Please select one again.")
-Issue.create!(title: "House", desc1: "House of something", 
-  desc2: "Please pick one.")
 
-# Give issues fake options
-issues = Issue.order(:created_at).take(3)
-3.times do
-  option = Faker::Name.last_name
-  issues.each { |issue| issue.options.create!(option: option) }
-end
+# Create some issues with options
+title = "For Chief Dairy Queen"
+desc1 = "Unexpired Term"
+desc2 = "Shall Justice Mint C. Chip of the Supreme Court of the State of Ice Cream by retained in office for another term?"
+issue = Issue.create!(title: title, desc1: desc1, desc2: desc2)
+option = "Yes"
+issue.options.create!(option: option)
+option = "No"
+issue.options.create!(option: option)
 
-# Create 2 fake votes
-Result.create!(user_id: 1, issue_id: 1, option_id: 1)
-Result.create!(user_id: 2, issue_id: 2, option_id: 2)
-Result.create!(user_id: 2, issue_id: 1, option_id: 1)
+title = "For State Rep. District M&M"
+desc1 = "Vote For One"
+desc2 = ""
+issue = Issue.create!(title: title, desc1: desc1, desc2: desc2)
+option = "P. Nut Butter (Republican)"
+issue.options.create!(option: option)
+option = "Cream C. Kol (INDEPENDENT)"
+issue.options.create!(option: option)
+option = "Marsh Mallow (DEMOCRAT)"
+issue.options.create!(option: option)
+
+title = "Constitutional Initiative No. 116"
+desc1 = "Vote for One"
+desc2 = "Make Vanilla (Over Chocolate) the Official Best Flavor"
+issue = Issue.create!(title: title, desc1: desc1, desc2: desc2)
+option = "YES ON CI - 116 (FOR VANILLA)"
+issue.options.create!(option: option)
+option = "NO ON CI - 116 (NO ON VANILLA)"
+issue.options.create!(option: option)
+
+
+# Create fake votes
+issues = Issue.order(:created_at)
+issues.each { |issue|
+  options = Option.where(issue_id: issue.id)
+  users = User.order(:created_at)
+  users.each { |user|
+    user_id = user.id
+    issue_id = issue.id
+    option_id = options[rand(options.length)].id
+    Result.create!(user_id: user_id, issue_id: issue_id, option_id: option_id)
+  }
+}
+
+
+
+
+
+#Result.create!(user_id: 1, issue_id: 1, option_id: 1)
+#Result.create!(user_id: 2, issue_id: 2, option_id: 2)
+#Result.create!(user_id: 2, issue_id: 1, option_id: 1)
