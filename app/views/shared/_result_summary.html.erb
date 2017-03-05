@@ -1,0 +1,21 @@
+<% if @results %>
+  <h2 class="center">Summary</h2>
+
+  <% @summary.each do |issue| %>
+    <h4><%= issue[0] %></h4>
+    <table class="summary_table">
+    <col width="80%">
+    <col width="20%">
+    <% issue.each_with_index do |option, i| %>
+      <% if i>0 %>
+        <tr>
+          <td><%= option[0] %></td>
+          <td><%= option[1] %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    </table>
+  <% end %>
+  <br>
+
+<% end %>
