@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a voting application by Mike Hallai using the Ruby on Rails framework.
+[View this app live on Heroku](https://quiet-sands-92329.herokuapp.com/)
 
-Things you may want to cover:
+Rails version:
+> Rails 5.0.1
 
-* Ruby version
+Ruby version:
+> ruby 2.2.2p95
 
-* System dependencies
+How to run the test suite: 
+> rails test
 
-* Configuration
+How to seed the database: 
+> rails db:seed
+The seed file creates an admin account (username: "admin", password: "foobar")
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Heroku Deployment method:
+> git push heroku
+> heroku pg:reset DATABASE
+> heroku run rails db:migrate
+> heroku run rails db:seed
+> heroku restart
