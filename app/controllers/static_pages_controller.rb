@@ -5,9 +5,9 @@ class StaticPagesController < ApplicationController
         @issue = Issue.new
         @issues = Issue.paginate(page: params[:page])
       else
-        @ballot = Issue.paginate(page: params[:page])
-        @options = Option.paginate(page: params[:page])
+        @ballot = current_user.ballot.paginate(page: params[:page])
         @result = Result.new
+        @options = Option.paginate(page: params[:page])
       end
     end 
   end

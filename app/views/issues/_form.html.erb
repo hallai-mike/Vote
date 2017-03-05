@@ -1,21 +1,21 @@
 <li id="issue-<%= issue.id %>">
   <h3><%= issue.title %> </h3>
-
-  <ul style="list-style: none;">
-    <% ar = [] %>
-    <% @options.each do |option| %>
-      <% if option.issue_id == issue.id %>
-        <% ar.push option %>
+  <% if @options %>
+    <ul style="list-style: none;">
+      <% ar = [] %>
+      <% @options.each do |option| %>
+        <% if option.issue_id == issue.id %>
+          <% ar.push option %>
+        <% end %>
       <% end %>
+    </ul>
+
+    <%= form_for(@result, url: vote_path, :issue_id => issue.id) do |f| %>
+
+      <%= f.select(:option_id, ar.map(&:option), {}, {multiple: false}) %>
+      <%= f.hidden_field(:issue_id, :value => issue.id) %>
+
+      <%= f.submit "Vote", class: "btn btn-primary" %>
     <% end %>
-  </ul>
-
-  <%= form_for(@result, url: vote_path, :issue_id => issue.id) do |f| %>
-
-    <%= f.select(:option_id, ar.map(&:option), {}, {multiple: false}) %>
-    <%= f.hidden_field(:issue_id, :value => issue.id) %>
-
-    <%= f.submit "Vote", class: "btn btn-primary" %>
-  <% end %>
-
+  <% end %>  
 </li>

@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(username: params[:session][:username])
     if user && user.authenticate(params[:session][:password])
-      # Log the user in and redirect to the user's show page.
+      # Log the user in and redirect to home page
       log_in user
       redirect_to root_url
     else
